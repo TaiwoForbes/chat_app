@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { getFirestore, setDoc } from "firebase/firestore";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 const firebaseConfig = {
   apiKey: "AIzaSyBeUC-9bE8hhdqV9yL8tAUajfM6kgOB7m4",
   authDomain: "chat-application-1310e.firebaseapp.com",
@@ -36,5 +37,8 @@ const signup = async(username,email,password)=>{
     }
     catch(error){
         console.error(error)
+        toast.error(error.code)
     }
 }
+
+export {signup}
