@@ -11,9 +11,7 @@ const AppContextProvider = (props) => {
     try{
         const userRef = doc(db,'users',uid)
         const userSnap = await getDoc(userRef)
-        console.log(userSnap
-        
-        );
+        console.log(userSnap);
         
     }catch(error){
     

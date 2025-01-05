@@ -10,15 +10,16 @@ import { auth } from './configs/firebase'
 import { AppContext } from './context/AppContext'
 const App = () => {
 
-  const avigate = useNavigate()
+  const navigate = useNavigate()
   const{loaderuserData} = useContext(AppContext)
   useEffect(()=>{
     onAuthStateChanged(auth, async(user)=>{
       if(user){
         navigate('/chat')
+        console.log(user);
+        
       }else{
         navigate('/')
-        
         await loaderuserData(user.uid)
         
       }
