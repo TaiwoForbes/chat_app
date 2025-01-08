@@ -14,7 +14,6 @@ const AppContextProvider = (props) => {
       const userRef = doc(db, "users", uid);
       const userSnap = await getDoc(userRef);
       const userData = userSnap.data();
-      console.log(userData);
 
       setUserData(userData);
       // if (userData.avatar && userData.name) {
@@ -42,7 +41,8 @@ const AppContextProvider = (props) => {
     if (userData) {
       const chatRef = doc(db,'chats',userData.id)
       const unsub = onSnapshot(chatRef,async(res)=>{
-        const chatItems = res.data().chatData
+        const chatItems = res.data().chatsData
+        
         const tempData = []
         for(const item of chatItems){
           const userRef = doc(db,'users',item.rid)
