@@ -21,9 +21,9 @@ const ProfileUpdate = () => {
   const profileUpdate = async (event) => {
     event.preventDefault();
     try {
-      // if (!prevImage && !image) {
-      //   toast.error("Upload Profile Picture");
-      // }
+      if (!prevImage && !image) {
+        toast.error("Upload Profile Picture");
+      }
       const docRef = doc(db, "users", uid);
       await updateDoc(docRef,{
             bio:bio,
@@ -112,7 +112,7 @@ const ProfileUpdate = () => {
           <button type="submit">Save</button>
         </form>
         <img
-          src={image ? URL.createObjectURL(image) : assets.logo_icon}
+          src={image ? URL.createObjectURL(image) : prevImage ? prevImage: assets.logo_icon}
           className="profile-pic"
           alt=""
         />
