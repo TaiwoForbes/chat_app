@@ -17,7 +17,10 @@ const AppContextProvider = (props) => {
       console.log(userData);
 
       setUserData(userData);
-      if (userData.avatar && userData.name) {
+      // if (userData.avatar && userData.name) {
+      //   navigate("/chat");
+      // }
+      if (userData.name) {
         navigate("/chat");
       } else {
         navigate("profile");
